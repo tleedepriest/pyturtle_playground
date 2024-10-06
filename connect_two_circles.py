@@ -9,11 +9,8 @@ def connect_two_circles_top_bottom(top_circle:Union[Arc, Circle], bottom_circle:
     connects two circles...does NOT draw the circles but only
     creates the connection
     """
-    top_circle.set_coordinates()
-    bottom_circle.set_coordinates()
-
-    coords_bottom = bottom_circle.get_coordinates()
-    coords_top = top_circle.get_coordinates()
+    coords_bottom = bottom_circle.coordinates
+    coords_top = top_circle.coordinates
 
     for i in range(0, len(coords_top)-len(coords_top)//2, len(coords_top)//20):
         # connect first half of coordinates of bottom circle
@@ -40,8 +37,6 @@ def main(filename=None):
         end_angle=360,
         center=(0, 0),
     )
-    bottom_circle.set_coordinates()
-    top_circle.set_coordinates()
     bottom_circle.draw(turtle)
     top_circle.draw(turtle)
     connect_two_circles_top_bottom(top_circle, bottom_circle, turtle)
